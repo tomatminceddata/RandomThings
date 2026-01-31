@@ -1,0 +1,130 @@
+/* ===== Existing: Show frontmatter on pages with 'fronty' class ===== */
+.fronty .publish-renderer > .publish-frontmatter > .markdown-preview-section > div > .frontmatter {
+  display: block !important;
+}
+.fronty .frontmatter.language-yaml {
+  display: block !important;
+}
+
+/* ===== Banner Image via Callout ===== */
+/* 
+   Basic usage: 
+   > [!banner-image]
+   > ![[your-image.jpg]]
+
+   With position control:
+   > [!banner-image|top]
+   > ![[your-image.jpg]]
+
+   Available positions: top, center, bottom
+   Or use percentages: pos-0, pos-10, pos-20, pos-30, pos-40, pos-50, pos-60, pos-70, pos-80, pos-90, pos-100
+*/
+
+.callout[data-callout="banner-image"] {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+  overflow: hidden;
+  max-height: 280px;
+}
+
+.callout[data-callout="banner-image"] .callout-title {
+  display: none;
+}
+
+.callout[data-callout="banner-image"] .callout-content {
+  padding: 0;
+  margin: 0;
+}
+
+.callout[data-callout="banner-image"] .callout-content p {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.callout[data-callout="banner-image"] img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center 30%; /* default position */
+  display: block;
+}
+
+/* ===== Position Variants (named) ===== */
+.callout[data-callout="banner-image"][data-callout-metadata="top"] img {
+  object-position: center 0%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="center"] img {
+  object-position: center 50%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="bottom"] img {
+  object-position: center 100%;
+}
+
+/* ===== Position Variants (percentage-based for fine control) ===== */
+.callout[data-callout="banner-image"][data-callout-metadata="pos-0"] img {
+  object-position: center 0%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-10"] img {
+  object-position: center 10%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-20"] img {
+  object-position: center 20%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-30"] img {
+  object-position: center 30%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-40"] img {
+  object-position: center 40%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-50"] img {
+  object-position: center 50%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-60"] img {
+  object-position: center 60%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-70"] img {
+  object-position: center 70%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-80"] img {
+  object-position: center 80%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-90"] img {
+  object-position: center 90%;
+}
+
+.callout[data-callout="banner-image"][data-callout-metadata="pos-100"] img {
+  object-position: center 100%;
+}
+
+/* ===== Optional: Gradient fade at the bottom ===== */
+.callout[data-callout="banner-image"]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, var(--background-primary));
+  pointer-events: none;
+}
